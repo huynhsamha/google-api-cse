@@ -1,0 +1,25 @@
+{
+  "name": "google-api-cse",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "eslint": "eslint *.js */.js",
+    "eslint:fix": "eslint *.js */.js --fix"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "dotenv": "^5.0.1",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "googleapis": "^31.0.2",
+    "morgan": "~1.9.0",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0"
+  }
+}

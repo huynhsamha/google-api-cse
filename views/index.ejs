@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= title %></title>
+
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+  <link href="//fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="/stylesheets/loader.css">
+  <link rel='stylesheet' href="/stylesheets/style.css">
+</head>
+
+<body>
+
+  <div class="wrap-search">
+    <input type="text" placeholder="Search by custom search engine..." id="input-search">
+  </div>
+
+  <div class="wrap-content">
+    <ul id="results" />
+  </div>
+
+  <div class="page" id="pagination">
+    <button class="prev" id="btn-prev">Previous</button>
+    <button class="next" id="btn-next">Next</button>
+  </div>
+  
+  <div id="loader" style="color: #eb1a58" class="la-ball-climbing-dot la-3x loader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+</body>
+</html>
