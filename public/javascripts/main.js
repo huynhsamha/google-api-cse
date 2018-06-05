@@ -6,6 +6,9 @@
   const $btnPrev = $('#btn-prev');
   const $btnNext = $('#btn-next');
   const $pagination = $('#pagination');
+  const $imgSearch = $('#img-search');
+  const $imgClose = $('#img-close');
+  const $imgCse = $('#img-cse');
 
   let data;
 
@@ -34,7 +37,9 @@
           <li class="item">
             <a href="${o.link}" class="title">${o.title}</a>
             <div class="snippet">${o.snippet}</div>
-            ${o.img ? `<img src="${o.img}" alt="image" height="80" width="80">` : ''}
+            ${o.img ?
+              `<a href=${o.img}><img src="${o.img}" alt="image"></a>`
+              : ''}
           </li>
         `);
       });
@@ -47,12 +52,29 @@
     $results.html('');
     $pagination.css('display', 'none');
     $loader.css('display', 'block');
+    $imgClose.css('display', 'block');
+    $imgCse.css('display', 'none');
   }
+
+  $inputSearch.on('input', (e) => {
+    if ($inputSearch.val() != '')
+      $imgClose.css('display', 'block');
+    else
+      $imgClose.css('display', 'none');
+  })
 
   $inputSearch.on('keypress', (e) => {
     if (e.which !== 13) return;
     // only handle press enter key
     const q = $inputSearch.val();
+    if (!q || q === '') return;
+    updateViewOnSearch();
+    cse(q);
+  })
+
+  $imgSearch.click(() => {
+    const q = $inputSearch.val();
+    if (!q || q === '') return;
     updateViewOnSearch();
     cse(q);
   })
@@ -66,5 +88,21 @@
     updateViewOnSearch();
     cse(data.q, data.previousPage);
   })
+
+  $imgClose.click(() => {
+    data = null;
+    $inputSearch.val('');
+    $imgClose.css('display', 'none');
+  })
+
+  function onInit() {
+    const q = $inputSearch.val();
+    if (q && q != '') {
+      updateViewOnSearch();
+      cse(q);
+    }
+  }
+
+  onInit();
 
 })();
